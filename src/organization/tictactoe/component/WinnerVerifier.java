@@ -32,14 +32,10 @@ public class WinnerVerifier {
     }
 
     private boolean isWinnerByMainDiagonal(final GameTable gameTable, final char sign) {
-        for (int i = 0; i < 3; i++) {
-            if (gameTable.getSign(new Cell(i, i)) == gameTable.getSign(new Cell(i, i)) &&
-                    gameTable.getSign(new Cell(i, i)) == gameTable.getSign(new Cell(i, i)) &&
-                    gameTable.getSign(new Cell(i, i)) == sign) {
-                return true;
-            }
-        }
-        return false;
+        return  (gameTable.getSign(new Cell(0, 0)) == gameTable.getSign(new Cell(1, 1)) &&
+                    gameTable.getSign(new Cell(1, 1)) == gameTable.getSign(new Cell(2, 2)) &&
+                    gameTable.getSign(new Cell(2, 2)) == sign);
+
     }
 
     private boolean isWinnerByCols(final GameTable gameTable, final char sign) {
